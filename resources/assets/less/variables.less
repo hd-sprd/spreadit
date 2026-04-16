@@ -1,33 +1,32 @@
-// AdminLTE 2 Variables.less
-// =========================
+// AdminLTE 2 Variables.less — modernized for Spread-IT
+// ======================================================
 
-// COLORS
+// COLORS — muted, professional palette
 // --------------------------------------------------------
-// Primary
-@light-blue: #3c8dbc;
+// Primary (slate blue)
+@light-blue: #4361a5;
 // Danger
-@red: #dd4b39;
+@red: #b83232;
 // Success
-@green: #00a65a;
+@green: #2d7a5e;
 // Info
-@aqua: #00c0ef;
+@aqua: #2878a8;
 // Warning
-@yellow: #f39c12;
-@blue: #3c8dbc;
-@navy: #001F3F;
-@teal: #39CCCC;
-@olive: #3D9970;
-@lime: #01FF70;
-@orange: #FF851B;
-@fuchsia: #F012BE;
-@purple: #605ca8;
-@maroon: #D81B60;
-@black: #111;
-@gray:          #d2d6de;
-@dark-gray:     #505156;
-@orange:        #FF8C00;
-@light-orange:  #ffd890;
-@gray-lte: #d2d6de;
+@yellow: #c17f20;
+@blue: #4361a5;
+@navy: #1a2332;
+@teal: #2d8080;
+@olive: #3d7f5a;
+@lime: #5cb85c;
+@orange: #c96920;
+@fuchsia: #9b2f8a;
+@purple: #5a52a0;
+@maroon: #a03060;
+@black: #1a1f2e;
+@gray:          #d0d4dc;
+@dark-gray:     #4b5260;
+@light-orange:  #f5e6c8;
+@gray-lte: #d0d4dc;
 
 // LAYOUT
 // --------------------------------------------------------
@@ -41,50 +40,50 @@
 
 // Link colors (Aka: <a> tags)
 @link-color: @light-blue;
-@link-hover-color: lighten(@link-color, 15%);
+@link-hover-color: lighten(@link-color, 10%);
 
 // Body background (Affects main content background only)
-@body-bg: #ecf0f5; // DEPRECATED
-@content-bg: #ecf0f5;
+@body-bg: #f4f6f9;
+@content-bg: #f4f6f9;
 
 // SIDEBAR SKINS
 // --------------------------------------------------------
 
-// Dark sidebar
-@sidebar-dark-bg: #222d32;
+// Dark sidebar — deep slate, professional
+@sidebar-dark-bg: #1a2332;
 @sidebar-dark-hover-bg: darken(@sidebar-dark-bg, 2%);
-@sidebar-dark-color: lighten(@sidebar-dark-bg, 60%);
+@sidebar-dark-color: #8fa3b8;
 @sidebar-dark-hover-color: #fff;
-@sidebar-dark-submenu-bg: lighten(@sidebar-dark-bg, 5%);
-@sidebar-dark-submenu-color: lighten(@sidebar-dark-submenu-bg, 40%);
+@sidebar-dark-submenu-bg: lighten(@sidebar-dark-bg, 4%);
+@sidebar-dark-submenu-color: #7a94aa;
 @sidebar-dark-submenu-hover-color: #fff;
 
 // Light sidebar
-@sidebar-light-bg: #f9fafc;
-@sidebar-light-hover-bg: lighten(#f0f0f1, 1.5%);
-@sidebar-light-color: #444;
-@sidebar-light-hover-color: #000;
+@sidebar-light-bg: #f8fafc;
+@sidebar-light-hover-bg: #edf2f7;
+@sidebar-light-color: #4b5260;
+@sidebar-light-hover-color: #1a1f2e;
 @sidebar-light-submenu-bg: @sidebar-light-hover-bg;
-@sidebar-light-submenu-color: #777;
-@sidebar-light-submenu-hover-color: #000;
+@sidebar-light-submenu-color: #6b7280;
+@sidebar-light-submenu-hover-color: #1a1f2e;
 
 // sidebar-expanded-on-hover
-@sidebar-expanded-shadow: 3px 0 8px rgba(0,0,0,.125);
+@sidebar-expanded-shadow: 2px 0 12px rgba(0,0,0,.1);
 
 // CONTROL SIDEBAR
 // --------------------------------------------------------
 @control-sidebar-width: @sidebar-width;
 
-// BOXES
+// BOXES — modern, rounded cards
 // --------------------------------------------------------
-@box-border-color: #f4f4f4;
-@box-border-radius: 3px;
-@box-footer-bg: #fff;
-@box-boxshadow: 0 1px 1px rgba(0, 0, 0, .1);
-@box-padding: 10px;
+@box-border-color: #e8ecf1;
+@box-border-radius: 8px;
+@box-footer-bg: #fafbfc;
+@box-boxshadow: 0 2px 8px rgba(0,0,0,.06);
+@box-padding: 12px;
 
 // Box variants
-@box-default-border-top-color: #d2d6de;
+@box-default-border-top-color: #d0d4dc;
 
 // BUTTONS
 // --------------------------------------------------------
@@ -92,19 +91,19 @@
 
 // PROGRESS BARS
 // --------------------------------------------------------
-@progress-bar-border-radius: 1px;
-@progress-bar-sm-border-radius: 1px;
-@progress-bar-xs-border-radius: 1px;
+@progress-bar-border-radius: 4px;
+@progress-bar-sm-border-radius: 3px;
+@progress-bar-xs-border-radius: 2px;
 
 // FORMS
 // --------------------------------------------------------
-@input-radius: 0;
+@input-radius: 4px;
 
 // BUTTONS
 // --------------------------------------------------------
 
 // Border radius for non flat buttons
-@btn-border-radius: 3px;
+@btn-border-radius: 5px;
 
 // HR
 // --------------------------------------------------------
@@ -115,17 +114,16 @@
 // --------------------------------------------------------
 @direct-chat-height: 250px;
 @direct-chat-default-msg-bg: @gray-lte;
-@direct-chat-default-font-color: #444;
+@direct-chat-default-font-color: #4b5260;
 @direct-chat-default-msg-border-color: @gray-lte;
 
 // CHAT WIDGET
 // --------------------------------------------------------
-@attachment-border-radius: 3px;
+@attachment-border-radius: 6px;
 
 // TRANSITIONS SETTINGS
 // --------------------------------------------------------
 
 // Transition global options
-@transition-speed: .3s;
+@transition-speed: .25s;
 @transition-fn: ease-in-out;
-  

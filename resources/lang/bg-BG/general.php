@@ -656,7 +656,7 @@ return [
     'use_cloned_image' => 'Клониране на изображение от оригинала',
     'use_cloned_image_help' => 'Може да клонирате изображението или да качите ново използвайки полето за качване по-долу.',
     'use_cloned_no_image_help' => 'Този артикул няма свързано изображене и вместо това онаследява от модела или категорията, към която пренадлежи. Ако желаете да използвате специфично изображение за този артикул, можета да качите такова от по-долу.',
-    'footer_credit' => '<a target="_blank" href="https://snipeitapp.com" rel="noopener">Snipe-IT</a> е софтуер с отворен код, създаден с <i class="fa fa-heart" aria-hidden="true" style="color: #a94442; font-size: 10px" /></i><span class="sr-only">любов</span> от Grokability, Inc.',
+    'footer_credit' => '<a target="_blank" href="https://snipeitapp.com" rel="noopener">Spread-IT</a> е софтуер с отворен код, създаден с <i class="fa fa-heart" aria-hidden="true" style="color: #a94442; font-size: 10px" /></i><span class="sr-only">любов</span> от Grokability, Inc.',
     'set_password' => 'Задай парола',
     'upload_deleted' => 'Качване Изтриване',
     'child_locations' => 'Под локаций',
