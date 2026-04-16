@@ -25,7 +25,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="language" content="{{ Helper::mapBackToLegacyLocale(app()->getLocale()) }}">
     <meta name="language-direction" content="{{ Helper::determineLanguageDirection() }}">
-    <meta name="baseUrl" content="{{ config('app.url') }}/">
+    <meta name="baseUrl" content="{{ request()->root() }}/">
     <meta name="theme-color" content="{{ $snipeSettings->header_color ?? '#5fa4cc' }}">
 
     <script nonce="{{ csrf_token() }}">
