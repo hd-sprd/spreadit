@@ -49,6 +49,8 @@ class PieChartTransformer
                 'data' => $counts,
                 'backgroundColor' => $colors_array,
                 'hoverBackgroundColor' => $colors_array,
+                'borderColor' => '#ffffff',
+                'borderWidth' => 2,
             ]],
         ];
 

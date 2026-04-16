@@ -1139,6 +1139,93 @@
 
     </style>
 
+    {{-- Main header override — must come after theme color styles above --}}
+    <style>
+        /* Outer navbar: white, single bottom border, no shadow */
+        .main-header .navbar,
+        .skin-blue .main-header .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #e8ecf1 !important;
+            border-top: none !important;
+            border-left: none !important;
+            border-right: none !important;
+            box-shadow: none !important;
+        }
+        /* All inner containers: transparent, no border, no shadow */
+        .main-header .navbar .navbar-left,
+        .main-header .navbar .navbar-custom-menu,
+        .main-header .navbar .nav,
+        .main-header .navbar .navbar-nav,
+        .main-header .navbar .left-navblock {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        /* li elements: no background, no border */
+        .main-header .navbar .nav > li,
+        .main-header .navbar .navbar-nav > li {
+            background-color: transparent !important;
+            border: none !important;
+        }
+        /* All link states */
+        .main-header .navbar .nav > li > a,
+        .main-header .navbar .nav > li > a:link,
+        .main-header .navbar .nav > li > a:visited,
+        .main-header .navbar .nav > li > a:focus,
+        .main-header .navbar .navbar-nav > li > a,
+        .main-header .navbar .navbar-nav > li > a:link,
+        .main-header .navbar .navbar-nav > li > a:visited,
+        .main-header .navbar .navbar-nav > li > a:focus {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: #3d3f45 !important;
+        }
+        .main-header .navbar .nav > li > a:hover,
+        .main-header .navbar .navbar-nav > li > a:hover {
+            background-color: #f2f4f6 !important;
+            color: #1a1c1f !important;
+        }
+        /* Sidebar toggle */
+        .main-header .navbar .sidebar-toggle {
+            background-color: transparent !important;
+            border: none !important;
+            color: #3d3f45 !important;
+        }
+        .main-header .navbar .sidebar-toggle:hover {
+            background-color: #f2f4f6 !important;
+        }
+        /* Brand text colors */
+        .main-header .navbar .brand-name {
+            color: #3d3f45 !important;
+        }
+        .main-header .navbar .brand-subtitle {
+            color: #76777d !important;
+        }
+        /* Dropdown menus */
+        .main-header .navbar .dropdown-menu {
+            background-color: #ffffff !important;
+            border: 1px solid #e8ecf1 !important;
+            box-shadow: none !important;
+        }
+        .main-header .navbar .dropdown-menu > li {
+            background-color: transparent !important;
+            border: none !important;
+        }
+        .main-header .navbar .dropdown-menu > li > a,
+        .main-header .navbar .dropdown-menu > li > a:link,
+        .main-header .navbar .dropdown-menu > li > a:visited {
+            background-color: transparent !important;
+            border: none !important;
+            color: #3d3f45 !important;
+        }
+        .main-header .navbar .dropdown-menu > li > a:hover,
+        .main-header .navbar .dropdown-menu > li > a:focus {
+            background-color: #f2f4f6 !important;
+            color: #1a1c1f !important;
+        }
+    </style>
+
     {{-- Custom CSS --}}
     @if (($snipeSettings) && ($snipeSettings->custom_css))
         <style>
@@ -1180,30 +1267,17 @@
                     </a>
                     <div class="nav navbar-nav navbar-left">
                         <div class="left-navblock">
-                            @if ($snipeSettings->brand == '3')
-                                <a class="logo navbar-brand no-hover" href="{{ config('app.url') }}">
-                                    @if ($snipeSettings->logo!='')
-                                        <img class="navbar-brand-img"
-                                             src="{{ Storage::disk('public')->url($snipeSettings->logo) }}"
-                                             alt="{{ $snipeSettings->site_name }} logo">
-                                    @endif
-                                    {{ $snipeSettings->site_name }}
-                                </a>
-                            @elseif ($snipeSettings->brand == '2')
-                                <a class="logo navbar-brand no-hover" href="{{ config('app.url') }}">
-                                    @if ($snipeSettings->logo!='')
-                                        <img class="navbar-brand-img"
-                                             src="{{ Storage::disk('public')->url($snipeSettings->logo) }}"
-                                             alt="{{ $snipeSettings->site_name }} logo">
-                                    @endif
-                                    <span class="sr-only">{{ $snipeSettings->site_name }}</span>
-                                </a>
-                            @else
-                                <a class="logo navbar-brand no-hover" href="{{ config('app.url') }}">
+                            <a class="sp-brand no-hover" href="{{ config('app.url') }}">
+                                @if ($snipeSettings->logo != '')
+                                    <img class="sp-brand-logo"
+                                         src="/uploads/{{ e($snipeSettings->logo) }}"
+                                         alt="{{ $snipeSettings->site_name }}">
+                                @endif
+                                <div class="sp-brand-text">
                                     <span class="brand-name">{{ $snipeSettings->site_name }}</span>
                                     <span class="brand-subtitle">Asset Management</span>
-                                </a>
-                            @endif
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -1271,21 +1345,15 @@
                             @endcan
 
                             @can('index', \App\Models\Asset::class)
-                                <li>
-                                    <form class="navbar-form navbar-left form-inline" role="search" action="{{ route('findbytag/hardware') }}" method="get">
-
-                                                <div class="input-group col-xs-12" style="border: 0 !important;">
-                                                    <label class="sr-only" for="tagSearch">
-                                                        {{ trans('general.lookup_by_tag') }}
-                                                    </label>
-                                                    <input type="text" class="form-control" id="tagSearch" name="assetTag" placeholder="{{ trans('general.lookup_by_tag') }}">
-                                                    <span class="input-group-btn">
-                                                        <button type="submit" id="topSearchButton" class="btn btn-sm btn-theme" style="padding: 7px 10px 7px 10px; "><x-icon type="search" class="fa-fw" /><div class="sr-only">{{ trans('general.search') }}</div></button>
-                                                    </span>
-                                                </div>
-
+                                <li class="sp-search-li">
+                                    <form class="sp-search-form" role="search" action="{{ route('findbytag/hardware') }}" method="get">
+                                        <label class="sr-only" for="tagSearch">{{ trans('general.lookup_by_tag') }}</label>
+                                        <div class="sp-search-wrap">
+                                            <x-icon type="search" class="sp-search-icon" />
+                                            <input type="text" class="sp-search-input" id="tagSearch" name="assetTag" placeholder="{{ trans('general.lookup_by_tag') }}">
+                                        </div>
                                         <input type="hidden" name="topsearch" value="true" id="search">
-
+                                        <button type="submit" id="topSearchButton" class="sr-only">{{ trans('general.search') }}</button>
                                     </form>
                                 </li>
                             @endcan
@@ -1360,18 +1428,17 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             @if (auth()->check())
                                 <li class="dropdown user user-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="dropdown-toggle sp-user-toggle" data-toggle="dropdown">
                                         @if (auth()->user()->present()->gravatar())
-                                            <img src="{{ Auth::user()->present()->gravatar() }}" class="user-image"
-                                                 alt="">
+                                            @php $avatarUrl = Auth::user()->present()->gravatar(); @endphp
+                                            <img src="{{ (str_starts_with($avatarUrl, 'http://') || str_starts_with($avatarUrl, 'https://')) ? $avatarUrl : '/'.ltrim($avatarUrl, '/') }}" class="sp-user-avatar" alt="{{ Auth::user()->display_name }}">
                                         @else
-                                            <x-icon type="user" />
+                                            <div class="sp-user-avatar sp-user-avatar-fallback"><x-icon type="user" /></div>
                                         @endif
-
-                                        <span class="hidden-xs">
-                                            {{ Auth::user()->display_name }}
-                                            <strong class="caret"></strong>
-                                        </span>
+                                        <div class="sp-user-info hidden-xs">
+                                            <span class="sp-user-name">{{ Auth::user()->display_name }}</span>
+                                        </div>
+                                        <strong class="caret hidden-xs"></strong>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <!-- User image -->
