@@ -320,16 +320,13 @@ select:required + .select2-container .select2-selection, select:required + .sele
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont,
-  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
   color: #2d3748;
 }
 
 .sidebar-menu {
-  font-size: 14px;
+  font-size: 13px;
   white-space: normal;
 }
 
@@ -1417,17 +1414,31 @@ Radio toggle styles for permission settings and check/uncheck all
 // TYPOGRAPHY
 // ==========================================================
 
-body, .form-control, .btn, td, th, .dropdown-menu {
+body,
+.form-control,
+.btn,
+td, th,
+.dropdown-menu,
+.select2-container,
+.select2-results__option,
+input, select, textarea,
+label,
+.nav > li > a,
+.sidebar-menu > li > a,
+p {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+// Base font size — everything scales from here
+html { font-size: 13px; }
 
 h1, h2, h3, h4,
 .box-title,
 .page-header h1,
 .content-header h1,
-.nav-tabs-custom > .nav-tabs > li > a,
-.small-box h3,
-.main-header .logo {
+.kpi-value {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 

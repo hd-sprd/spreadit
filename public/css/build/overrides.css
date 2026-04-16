@@ -336,12 +336,12 @@ select:required + .select2-container .select2-selection .select2-selection--mult
   border-right: 4px solid #94a3b8 !important;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
   color: #2d3748;
 }
 .sidebar-menu {
-  font-size: 14px;
+  font-size: 13px;
   white-space: normal;
 }
 .modal-warning .modal-help {
@@ -1277,8 +1277,22 @@ body,
 .btn,
 td,
 th,
-.dropdown-menu {
+.dropdown-menu,
+.select2-container,
+.select2-results__option,
+input,
+select,
+textarea,
+label,
+.nav > li > a,
+.sidebar-menu > li > a,
+p {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-size: 13px;
 }
 h1,
 h2,
@@ -1287,9 +1301,7 @@ h4,
 .box-title,
 .page-header h1,
 .content-header h1,
-.nav-tabs-custom > .nav-tabs > li > a,
-.small-box h3,
-.main-header .logo {
+.kpi-value {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 .wrapper,
@@ -1892,7 +1904,7 @@ a.sp-brand:hover {
   justify-content: center;
 }
 li.sp-search-li {
-  margin-top: 8px !important;
+  margin-top: 7px !important;
   padding: 0 !important;
   display: flex !important;
   align-items: center !important;
