@@ -82,6 +82,7 @@ class AssetsTransformer
             ] : null,
             'notes' => ($asset->notes) ? Helper::parseEscapedMarkedownInline($asset->notes) : null,
             'order_number' => ($asset->order_number) ? e($asset->order_number) : null,
+            'jira_ticket' => ($asset->jira_ticket) ? e($asset->jira_ticket) : null,
             'company' => ($asset->company) ? [
                 'id' => (int) $asset->company->id,
                 'name' => e($asset->company->name),

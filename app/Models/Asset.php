@@ -172,6 +172,7 @@ class Asset extends Depreciable
         'next_audit_date',
         'last_checkin',
         'last_checkout',
+        'jira_ticket',
     ];
 
     use Searchable;
@@ -197,6 +198,7 @@ class Asset extends Depreciable
         'last_checkin',
         'last_checkout',
         'asset_eol_date',
+        'jira_ticket',
     ];
 
     /**

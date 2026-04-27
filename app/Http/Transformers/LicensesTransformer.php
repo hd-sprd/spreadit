@@ -59,6 +59,13 @@ class LicensesTransformer
                 'name' => e($license->category->name),
                 'tag_color' => ($license->category->tag_color) ? e($license->category->tag_color) : null,
             ] : null,
+            'payment_type' => ($license->payment_type) ? e($license->payment_type) : null,
+            'payment_frequency' => ($license->payment_frequency) ? e($license->payment_frequency) : null,
+            'owner' => ($license->owner) ? [
+                'id' => (int) $license->owner->id,
+                'name' => e($license->owner->display_name),
+            ] : null,
+            'jira_ticket' => ($license->jira_ticket) ? e($license->jira_ticket) : null,
             'created_by' => ($license->adminuser) ? [
                 'id' => (int) $license->adminuser->id,
                 'name' => e($license->adminuser->display_name),

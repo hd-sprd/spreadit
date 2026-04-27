@@ -343,7 +343,7 @@ class ReportsController extends Controller
     {
         $this->authorize('reports.view');
         $licenses = License::with('depreciation')->orderBy('created_at', 'DESC')
-            ->with('company')
+            ->with('company', 'owner')
             ->get();
 
         return view('reports/licenses', compact('licenses'));

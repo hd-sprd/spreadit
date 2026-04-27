@@ -94,6 +94,10 @@ class License extends Depreciable
         'termination_date',
         'created_by',
         'min_amt',
+        'payment_type',
+        'payment_frequency',
+        'owner_id',
+        'jira_ticket',
     ];
 
     use Searchable;
@@ -114,6 +118,9 @@ class License extends Depreciable
         'expiration_date',
         'license_email',
         'license_name',
+        'payment_type',
+        'payment_frequency',
+        'jira_ticket',
     ];
 
     /**
@@ -128,6 +135,7 @@ class License extends Depreciable
         'depreciation' => ['name'],
         'supplier' => ['name'],
         'adminuser' => ['first_name', 'last_name', 'display_name'],
+        'owner' => ['first_name', 'last_name', 'display_name'],
     ];
 
     protected $appends = ['free_seat_count'];
@@ -791,6 +799,11 @@ class License extends Depreciable
     public function supplier()
     {
         return $this->belongsTo(Supplier::class, 'supplier_id');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id')->withTrashed();
     }
 
     /**

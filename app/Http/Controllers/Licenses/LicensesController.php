@@ -110,6 +110,10 @@ class LicensesController extends Controller
         $license->termination_date = $request->input('termination_date');
         $license->created_by = auth()->id();
         $license->min_amt = $request->input('min_amt');
+        $license->payment_type = $request->input('payment_type');
+        $license->payment_frequency = $request->input('payment_frequency');
+        $license->owner_id = $request->input('owner_id');
+        $license->jira_ticket = $request->input('jira_ticket');
 
         if ($request->input('redirect_option') === 'back') {
             session()->put(['redirect_option' => 'index']);
@@ -194,6 +198,10 @@ class LicensesController extends Controller
         $license->supplier_id = $request->input('supplier_id');
         $license->category_id = $request->input('category_id');
         $license->min_amt = $request->input('min_amt');
+        $license->payment_type = $request->input('payment_type');
+        $license->payment_frequency = $request->input('payment_frequency');
+        $license->owner_id = $request->input('owner_id');
+        $license->jira_ticket = $request->input('jira_ticket');
 
         session()->put(['redirect_option' => $request->input('redirect_option')]);
 
@@ -349,6 +357,7 @@ class LicensesController extends Controller
                 'category',
                 'supplier',
                 'adminuser',
+                'owner',
                 'assignedusers');
             if (request()->filled('category_id')) {
                 $licenses = $licenses->where('category_id', request()->input('category_id'));
@@ -384,6 +393,10 @@ class LicensesController extends Controller
                         trans('admin/licenses/form.reassignable'),
                         trans('general.notes'),
                         trans('general.created_at'),
+                        'Payment Type',
+                        'Payment Frequency',
+                        'Owner',
+                        'Jira Ticket',
                     ];
 
                     fputcsv($handle, $headers);
@@ -417,6 +430,10 @@ class LicensesController extends Controller
                             ($license->reassignable == '1') ? trans('general.yes') : trans('general.no'),
                             $license->notes,
                             $license->created_at,
+                            $license->payment_type,
+                            $license->payment_frequency,
+                            $license->owner ? $license->owner->display_name : '',
+                            $license->jira_ticket,
                         ];
 
                         fputcsv($handle, $values);

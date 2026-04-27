@@ -161,6 +161,7 @@ class AssetsController extends Controller
                 $asset->model_id = $request->input('model_id');
                 $asset->order_number = $request->input('order_number');
                 $asset->notes = $request->input('notes');
+                $asset->jira_ticket = $request->input('jira_ticket');
                 $asset->created_by = auth()->id();
                 $asset->status_id = request('status_id');
                 $asset->warranty_months = request('warranty_months', null);
@@ -471,6 +472,7 @@ class AssetsController extends Controller
         }
 
         $asset->notes = $request->input('notes');
+        $asset->jira_ticket = $request->input('jira_ticket');
 
         $asset = $request->handleImages($asset);
 

@@ -119,6 +119,7 @@ class AssetsController extends Controller
             'asset_eol_date',
             'requestable',
             'jobtitle',
+            'jira_ticket',
             // These are *relationships* so we wouldn't normally include them in this array,
             // since they would normally create a `column not found` error,
             // BUT we account for them in the ordering switch down at the end of this method
@@ -368,6 +369,10 @@ class AssetsController extends Controller
 
         if ($request->filled('order_number')) {
             $assets->where('assets.order_number', '=', strval($request->input('order_number')));
+        }
+
+        if ($request->filled('jira_ticket')) {
+            $assets->where('assets.jira_ticket', '=', $request->input('jira_ticket'));
         }
 
         // This is kinda gross, but we need to do this because the Bootstrap Tables

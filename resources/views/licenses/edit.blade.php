@@ -76,6 +76,45 @@
 </div>
 
 
+<!-- Payment Type -->
+<div class="form-group {{ $errors->has('payment_type') ? ' has-error' : '' }}">
+    <label for="payment_type" class="col-md-3 control-label">Payment Type</label>
+    <div class="col-md-7">
+        <select class="form-control select2" name="payment_type" id="payment_type">
+            <option value="">-- Select --</option>
+            @foreach(['Invoice', 'Credit Card', 'PayPal', 'Bank Transfer'] as $pt)
+                <option value="{{ $pt }}" {{ old('payment_type', $item->payment_type) == $pt ? 'selected' : '' }}>{{ $pt }}</option>
+            @endforeach
+        </select>
+        {!! $errors->first('payment_type', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
+<!-- Payment Frequency -->
+<div class="form-group {{ $errors->has('payment_frequency') ? ' has-error' : '' }}">
+    <label for="payment_frequency" class="col-md-3 control-label">Payment Frequency</label>
+    <div class="col-md-7">
+        <select class="form-control select2" name="payment_frequency" id="payment_frequency">
+            <option value="">-- Select --</option>
+            @foreach(['Weekly', 'Monthly', 'Quarterly', 'Yearly', 'Other'] as $pf)
+                <option value="{{ $pf }}" {{ old('payment_frequency', $item->payment_frequency) == $pf ? 'selected' : '' }}>{{ $pf }}</option>
+            @endforeach
+        </select>
+        {!! $errors->first('payment_frequency', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
+@include ('partials.forms.edit.user-select', ['translated_name' => 'Owner', 'fieldname' => 'owner_id'])
+
+<!-- Jira Ticket -->
+<div class="form-group {{ $errors->has('jira_ticket') ? ' has-error' : '' }}">
+    <label for="jira_ticket" class="col-md-3 control-label">Jira Ticket</label>
+    <div class="col-md-7">
+        <input class="form-control" type="url" name="jira_ticket" id="jira_ticket" value="{{ old('jira_ticket', $item->jira_ticket) }}" placeholder="https://..." />
+        {!! $errors->first('jira_ticket', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
 @include ('partials.forms.edit.supplier-select', ['translated_name' => trans('general.supplier'), 'fieldname' => 'supplier_id'])
 @include ('partials.forms.edit.order_number')
 @include ('partials.forms.edit.purchase_cost')

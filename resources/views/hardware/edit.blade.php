@@ -106,6 +106,16 @@
     @endif
 
     @include ('partials.forms.edit.notes')
+
+    <!-- Jira Ticket -->
+    <div class="form-group {{ $errors->has('jira_ticket') ? ' has-error' : '' }}">
+        <label for="jira_ticket" class="col-md-3 control-label">Jira Ticket</label>
+        <div class="col-md-7">
+            <input class="form-control" type="url" name="jira_ticket" id="jira_ticket" value="{{ old('jira_ticket', $item->jira_ticket) }}" placeholder="https://..." />
+            {!! $errors->first('jira_ticket', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+        </div>
+    </div>
+
     @include ('partials.forms.edit.location-select', ['translated_name' => trans('admin/hardware/form.default_location'), 'fieldname' => 'rtd_location_id', 'help_text' => trans('general.rtd_location_help')])
     @include ('partials.forms.edit.requestable', ['requestable_text' => trans('admin/hardware/general.requestable')])
 

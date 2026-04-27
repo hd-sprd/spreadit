@@ -56,6 +56,7 @@
                                 <th data-sortable="false" data-field="eol" data-searchable="true">{{ trans('general.eol') }}</th>
                                 <th data-sortable="true" data-searchable="true" data-field="notes">{{ trans('general.notes') }}</th>
                                 <th data-sortable="true" data-searchable="true"  data-field="order_number">{{ trans('admin/hardware/form.order') }}</th>
+                                <th data-sortable="true" data-searchable="true" data-field="jira_ticket" data-visible="false">Jira Ticket</th>
                                 <th data-sortable="true" data-searchable="true" data-field="last_checkout">{{ trans('admin/hardware/table.checkout_date') }}</th>
                                 <th data-sortable="true" data-field="expected_checkin" data-searchable="true">{{ trans('admin/hardware/form.expected_checkin') }}</th>
                                 @foreach(\App\Models\CustomField::all() AS $field)

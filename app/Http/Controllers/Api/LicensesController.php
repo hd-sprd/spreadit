@@ -27,7 +27,7 @@ class LicensesController extends Controller
     {
         $this->authorize('view', License::class);
 
-        $licenses = License::with('company', 'manufacturer', 'supplier', 'category', 'adminuser')->withCount('freeSeats as free_seats_count');
+        $licenses = License::with('company', 'manufacturer', 'supplier', 'category', 'adminuser', 'owner')->withCount('freeSeats as free_seats_count');
         $settings = Setting::getSettings();
 
         if ($request->input('status') == 'inactive') {
@@ -98,6 +98,22 @@ class LicensesController extends Controller
             $licenses->whereNull('expiration_date');
         }
 
+        if ($request->filled('payment_type')) {
+            $licenses->where('licenses.payment_type', '=', $request->input('payment_type'));
+        }
+
+        if ($request->filled('payment_frequency')) {
+            $licenses->where('licenses.payment_frequency', '=', $request->input('payment_frequency'));
+        }
+
+        if ($request->filled('owner_id')) {
+            $licenses->where('licenses.owner_id', '=', $request->input('owner_id'));
+        }
+
+        if ($request->filled('jira_ticket')) {
+            $licenses->where('licenses.jira_ticket', '=', $request->input('jira_ticket'));
+        }
+
         // This invokes the Searchable model trait and will handle input by search or by advanced search filter
         if ($request->filled('filter') || $request->filled('search')) {
             $licenses->TextSearch($request->input('filter') ? $request->input('filter') : $request->input('search'));
@@ -153,6 +169,9 @@ class LicensesController extends Controller
                         'termination_date',
                         'depreciation_id',
                         'min_amt',
+                        'payment_type',
+                        'payment_frequency',
+                        'jira_ticket',
                     ];
                 $sort = in_array($request->input('sort'), $allowed_columns) ? e($request->input('sort')) : 'created_at';
                 $licenses = $licenses->orderBy($sort, $order);
