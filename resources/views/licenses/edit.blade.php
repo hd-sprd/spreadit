@@ -76,6 +76,20 @@
 </div>
 
 
+<!-- Lifecycle Status -->
+<div class="form-group {{ $errors->has('lifecycle_status') ? ' has-error' : '' }}">
+    <label for="lifecycle_status" class="col-md-3 control-label">Lifecycle Status</label>
+    <div class="col-md-7">
+        <select class="form-control select2" name="lifecycle_status" id="lifecycle_status">
+            <option value="">-- Select --</option>
+            @foreach(['Active', 'Scheduled Termination', 'Terminated', 'Replaced', 'Inactive', 'Needs Review'] as $ls)
+                <option value="{{ $ls }}" {{ old('lifecycle_status', $item->lifecycle_status) == $ls ? 'selected' : '' }}>{{ $ls }}</option>
+            @endforeach
+        </select>
+        {!! $errors->first('lifecycle_status', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
 <!-- Payment Type -->
 <div class="form-group {{ $errors->has('payment_type') ? ' has-error' : '' }}">
     <label for="payment_type" class="col-md-3 control-label">Payment Type</label>
@@ -110,7 +124,7 @@
 <div class="form-group {{ $errors->has('jira_ticket') ? ' has-error' : '' }}">
     <label for="jira_ticket" class="col-md-3 control-label">Jira Ticket</label>
     <div class="col-md-7">
-        <input class="form-control" type="url" name="jira_ticket" id="jira_ticket" value="{{ old('jira_ticket', $item->jira_ticket) }}" placeholder="https://..." />
+        <textarea class="form-control" name="jira_ticket" id="jira_ticket" rows="3" placeholder="e.g. PROJ-123, PROJ-456">{{ old('jira_ticket', $item->jira_ticket) }}</textarea>
         {!! $errors->first('jira_ticket', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
     </div>
 </div>

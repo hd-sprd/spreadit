@@ -114,6 +114,10 @@ class LicensesController extends Controller
             $licenses->where('licenses.jira_ticket', '=', $request->input('jira_ticket'));
         }
 
+        if ($request->filled('lifecycle_status')) {
+            $licenses->where('licenses.lifecycle_status', '=', $request->input('lifecycle_status'));
+        }
+
         // This invokes the Searchable model trait and will handle input by search or by advanced search filter
         if ($request->filled('filter') || $request->filled('search')) {
             $licenses->TextSearch($request->input('filter') ? $request->input('filter') : $request->input('search'));
@@ -172,6 +176,7 @@ class LicensesController extends Controller
                         'payment_type',
                         'payment_frequency',
                         'jira_ticket',
+                        'lifecycle_status',
                     ];
                 $sort = in_array($request->input('sort'), $allowed_columns) ? e($request->input('sort')) : 'created_at';
                 $licenses = $licenses->orderBy($sort, $order);

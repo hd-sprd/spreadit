@@ -59,6 +59,7 @@ class LicensesTransformer
                 'name' => e($license->category->name),
                 'tag_color' => ($license->category->tag_color) ? e($license->category->tag_color) : null,
             ] : null,
+            'lifecycle_status' => ($license->lifecycle_status) ? e($license->lifecycle_status) : null,
             'payment_type' => ($license->payment_type) ? e($license->payment_type) : null,
             'payment_frequency' => ($license->payment_frequency) ? e($license->payment_frequency) : null,
             'owner' => ($license->owner) ? [

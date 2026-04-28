@@ -38,6 +38,7 @@
                                 <th class="col-sm-1">{{ trans('general.depreciation') }}</th>
                                 <th class="col-sm-1 text-right">{{ trans('admin/hardware/table.book_value') }}</th>
                                 <th class="col-sm-1 text-right">{{ trans('admin/hardware/table.diff') }}</th>
+                                <th class="col-sm-1">Lifecycle Status</th>
                                 <th class="col-sm-1">Payment Type</th>
                                 <th class="col-sm-1">Payment Frequency</th>
                                 <th class="col-sm-1">Owner</th>
@@ -79,10 +80,11 @@
                                 <td class="text-right">
                                     -{{ $snipeSettings->default_currency }}{{ Helper::formatCurrencyOutput(($license->purchase_cost - $license->getDepreciatedValue())) }}
                                 </td>
+                                <td>{{ $license->lifecycle_status }}</td>
                                 <td>{{ $license->payment_type }}</td>
                                 <td>{{ $license->payment_frequency }}</td>
                                 <td>{{ $license->owner ? $license->owner->display_name : '' }}</td>
-                                <td>{!! $license->jira_ticket ? '<a href="'.e($license->jira_ticket).'" target="_blank">'.e($license->jira_ticket).'</a>' : '' !!}</td>
+                                <td>{{ $license->jira_ticket }}</td>
                             </tr>
                             @endforeach
                         </tbody>

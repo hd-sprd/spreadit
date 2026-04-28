@@ -111,7 +111,7 @@
     <div class="form-group {{ $errors->has('jira_ticket') ? ' has-error' : '' }}">
         <label for="jira_ticket" class="col-md-3 control-label">Jira Ticket</label>
         <div class="col-md-7">
-            <input class="form-control" type="url" name="jira_ticket" id="jira_ticket" value="{{ old('jira_ticket', $item->jira_ticket) }}" placeholder="https://..." />
+            <textarea class="form-control" name="jira_ticket" id="jira_ticket" rows="3" placeholder="e.g. PROJ-123, PROJ-456">{{ old('jira_ticket', $item->jira_ticket) }}</textarea>
             {!! $errors->first('jira_ticket', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
         </div>
     </div>

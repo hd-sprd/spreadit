@@ -114,6 +114,7 @@ class LicensesController extends Controller
         $license->payment_frequency = $request->input('payment_frequency');
         $license->owner_id = $request->input('owner_id');
         $license->jira_ticket = $request->input('jira_ticket');
+        $license->lifecycle_status = $request->input('lifecycle_status');
 
         if ($request->input('redirect_option') === 'back') {
             session()->put(['redirect_option' => 'index']);
@@ -202,6 +203,7 @@ class LicensesController extends Controller
         $license->payment_frequency = $request->input('payment_frequency');
         $license->owner_id = $request->input('owner_id');
         $license->jira_ticket = $request->input('jira_ticket');
+        $license->lifecycle_status = $request->input('lifecycle_status');
 
         session()->put(['redirect_option' => $request->input('redirect_option')]);
 
@@ -397,6 +399,7 @@ class LicensesController extends Controller
                         'Payment Frequency',
                         'Owner',
                         'Jira Ticket',
+                        'Lifecycle Status',
                     ];
 
                     fputcsv($handle, $headers);
@@ -434,6 +437,7 @@ class LicensesController extends Controller
                             $license->payment_frequency,
                             $license->owner ? $license->owner->display_name : '',
                             $license->jira_ticket,
+                            $license->lifecycle_status,
                         ];
 
                         fputcsv($handle, $values);
