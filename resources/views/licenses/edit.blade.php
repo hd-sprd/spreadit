@@ -90,6 +90,24 @@
     </div>
 </div>
 
+<!-- Credit Card Last 4 Digits -->
+<div class="form-group {{ $errors->has('cc_last_four') ? ' has-error' : '' }}">
+    <label for="cc_last_four" class="col-md-3 control-label">Credit Card Last 4 Digits</label>
+    <div class="col-md-7">
+        <input class="form-control" type="text" name="cc_last_four" id="cc_last_four" maxlength="4" pattern="\d{4}" value="{{ old('cc_last_four', $item->cc_last_four) }}" placeholder="1234" />
+        {!! $errors->first('cc_last_four', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
+<!-- Credit Card Name -->
+<div class="form-group {{ $errors->has('cc_name') ? ' has-error' : '' }}">
+    <label for="cc_name" class="col-md-3 control-label">Credit Card Name</label>
+    <div class="col-md-7">
+        <input class="form-control" type="text" name="cc_name" id="cc_name" maxlength="191" value="{{ old('cc_name', $item->cc_name) }}" />
+        {!! $errors->first('cc_name', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
+    </div>
+</div>
+
 <!-- Payment Type -->
 <div class="form-group {{ $errors->has('payment_type') ? ' has-error' : '' }}">
     <label for="payment_type" class="col-md-3 control-label">Payment Type</label>

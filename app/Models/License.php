@@ -99,6 +99,8 @@ class License extends Depreciable
         'owner_id',
         'jira_ticket',
         'lifecycle_status',
+        'cc_last_four',
+        'cc_name',
     ];
 
     use Searchable;
@@ -123,6 +125,7 @@ class License extends Depreciable
         'payment_frequency',
         'jira_ticket',
         'lifecycle_status',
+        'cc_name',
     ];
 
     /**

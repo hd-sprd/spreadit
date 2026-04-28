@@ -39,6 +39,8 @@
                                 <th class="col-sm-1 text-right">{{ trans('admin/hardware/table.book_value') }}</th>
                                 <th class="col-sm-1 text-right">{{ trans('admin/hardware/table.diff') }}</th>
                                 <th class="col-sm-1">Lifecycle Status</th>
+                                <th class="col-sm-1">CC Last 4</th>
+                                <th class="col-sm-1">CC Name</th>
                                 <th class="col-sm-1">Payment Type</th>
                                 <th class="col-sm-1">Payment Frequency</th>
                                 <th class="col-sm-1">Owner</th>
@@ -81,6 +83,8 @@
                                     -{{ $snipeSettings->default_currency }}{{ Helper::formatCurrencyOutput(($license->purchase_cost - $license->getDepreciatedValue())) }}
                                 </td>
                                 <td>{{ $license->lifecycle_status }}</td>
+                                <td>{{ $license->cc_last_four }}</td>
+                                <td>{{ $license->cc_name }}</td>
                                 <td>{{ $license->payment_type }}</td>
                                 <td>{{ $license->payment_frequency }}</td>
                                 <td>{{ $license->owner ? $license->owner->display_name : '' }}</td>

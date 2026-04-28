@@ -115,6 +115,8 @@ class LicensesController extends Controller
         $license->owner_id = $request->input('owner_id');
         $license->jira_ticket = $request->input('jira_ticket');
         $license->lifecycle_status = $request->input('lifecycle_status');
+        $license->cc_last_four = $request->input('cc_last_four');
+        $license->cc_name = $request->input('cc_name');
 
         if ($request->input('redirect_option') === 'back') {
             session()->put(['redirect_option' => 'index']);
@@ -204,6 +206,8 @@ class LicensesController extends Controller
         $license->owner_id = $request->input('owner_id');
         $license->jira_ticket = $request->input('jira_ticket');
         $license->lifecycle_status = $request->input('lifecycle_status');
+        $license->cc_last_four = $request->input('cc_last_four');
+        $license->cc_name = $request->input('cc_name');
 
         session()->put(['redirect_option' => $request->input('redirect_option')]);
 
@@ -400,6 +404,8 @@ class LicensesController extends Controller
                         'Owner',
                         'Jira Ticket',
                         'Lifecycle Status',
+                        'CC Last Four',
+                        'CC Name',
                     ];
 
                     fputcsv($handle, $headers);
@@ -438,6 +444,8 @@ class LicensesController extends Controller
                             $license->owner ? $license->owner->display_name : '',
                             $license->jira_ticket,
                             $license->lifecycle_status,
+                            $license->cc_last_four,
+                            $license->cc_name,
                         ];
 
                         fputcsv($handle, $values);
