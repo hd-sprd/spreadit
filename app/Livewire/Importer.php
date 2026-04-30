@@ -280,6 +280,7 @@ class Importer extends Component
             'expected_checkin' => trans('admin/hardware/form.expected_checkin'),
             'last_audit_date' => trans('general.last_audit'),
             'next_audit_date' => trans('general.next_audit_date'),
+            'jira_ticket' => 'Jira Ticket',
         ];
 
         $this->consumables_fields = [
@@ -343,6 +344,7 @@ class Importer extends Component
             'supplier' => trans('general.supplier'),
             'termination_date' => trans('admin/licenses/form.termination_date'),
             'username' => trans('general.importer.checked_out_to_username'),
+            'jira_ticket' => 'Jira Ticket',
         ];
 
         $this->users_fields = [

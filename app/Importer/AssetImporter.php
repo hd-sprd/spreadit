@@ -123,6 +123,7 @@ class AssetImporter extends ItemImporter
         $this->item['last_audit_date'] = trim($this->findCsvMatch($row, 'last_audit_date'));
         $this->item['next_audit_date'] = trim($this->findCsvMatch($row, 'next_audit_date'));
         $this->item['asset_eol_date'] = trim($this->findCsvMatch($row, 'asset_eol_date'));
+        $this->item['jira_ticket'] = trim($this->findCsvMatch($row, 'jira_ticket'));
         $this->item['asset_tag'] = $asset_tag;
 
         // We need to save the user if it exists so that we can checkout to user later.

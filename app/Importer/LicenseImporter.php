@@ -68,6 +68,7 @@ class LicenseImporter extends ItemImporter
         $this->item['reassignable'] = trim($this->findCsvMatch($row, 'reassignable'));
         $this->item['manufacturer'] = $this->createOrFetchManufacturer(trim($this->findCsvMatch($row, 'manufacturer')));
         $this->item['min_amt'] = trim($this->findCsvMatch($row, 'min_amt'));
+        $this->item['jira_ticket'] = trim($this->findCsvMatch($row, 'jira_ticket'));
 
         if ($this->item['reassignable'] == '') {
             $this->item['reassignable'] = 1;
